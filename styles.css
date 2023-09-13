@@ -132,3 +132,20 @@ button {
     font-family: 'Bricolage Grotesque', sans-serif;
     font-size: 0.8rem;
 }
+
+@media (max-width: 768px) {
+    section {
+        min-width: 300px;
+        min-height: 500px;
+    }
+
+    h4,
+    h1 {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .musicContent {
+        padding: 0 1.5rem;
+    }
+}
