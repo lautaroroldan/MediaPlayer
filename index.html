@@ -79,8 +79,6 @@
             removePaddingForPause();
             updateEndDuration()
             // Reproducir el nuevo audio.
-            audio.play();
-            play.src = "./assets/svgs/pause.svg";
         }
 
         range.addEventListener("input", handleRangeInput)
@@ -102,6 +100,8 @@
 
             // Cambiar la fuente de audio.
             audio.src = songArray[songIndex];
+            audio.play();
+            play.src = "./assets/svgs/pause.svg";
         })
 
 
@@ -118,6 +118,8 @@
 
             // Cambiar la fuente de audio.
             audio.src = songArray[songIndex];
+            audio.play();
+            play.src = "./assets/svgs/pause.svg";
         });
 
 
