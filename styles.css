@@ -1,0 +1,134 @@
+*::after,
+*::before,
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(./assets/imgs/building.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section {
+    /* BLUR */
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.2);
+
+    padding: 1.50rem;
+    min-width: 400px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 25px;
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h4,
+h1 {
+    color: #fff;
+    font-size: 1.25rem;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+}
+
+h4 {
+    padding: 0.25rem 0.25rem 0.50rem 0.25rem;
+    outline: 1px solid #fff;
+    border-radius: 5px;
+    position: relative;
+}
+
+h4::after {
+    content: "";
+    height: 8px;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    height: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.musicDuration {
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.play {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playPadding {
+    padding: 0.75rem 0.6rem 0.75rem 0.85rem;
+}
+
+.pausePadding {
+    padding: 0.75rem;
+}
+
+.musicContent {
+    padding: 0 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.durationText {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 0.8rem;
+}

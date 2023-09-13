@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <section>
+            <header>
+                <h4>CSS</h4>
+                <h1 class="titleSong">Music Player</h1>
+                <h4>JS</h4>
+            </header>
+
+            <div class="musicContent">
+                <div class="musicDuration">
+                    <input type="range" alt="Barra indicadora de tiempo reproduciendo" value="0" step="1">
+                    <div class="durationText">
+                        <p class="startDuration">00:00</p>
+                        <p class="endDuration"></p>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button><img src="./assets/svgs/again.svg" class="again" alt="again button"></button>
+                    <button><img src="./assets/svgs/prev.svg" class="prev" alt="prev button"></button>
+                    <button><img src="./assets/svgs/play.svg" class="play playPadding"
+                            alt="play or pause button"></button>
+                    <button><img src="./assets/svgs/next.svg" class="next" alt="next button"></button>
+                    <button><img src="./assets/svgs/list.svg" alt="list button"></button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const play = document.querySelector(".play")
+        const next = document.querySelector(".next")
+        const again = document.querySelector(".again")
+        const prev = document.querySelector(".prev")
+        const titleSong = document.querySelector(".titleSong")
+        const startDuration = document.querySelector(".startDuration")
+        const endDuration = document.querySelector(".endDuration")
+        const songArray = ["./assets/music/Genie In A Bottle.mp3", "./assets/music/I Want You Back.mp3"]
+        let songIndex = 0
+        const audio = new Audio(songArray[songIndex])
+        const range = document.querySelector("input[type=range]")
+
+        function handleRangeInput() {
+            audio.currentTime = range.value * audio.duration / 100;
+        }
+
+        function updateSongTitle() {
+            titleSong.innerHTML = audio.src.split("/").pop().split(".")[0].replaceAll("%20", " ");
+        }
+
+        function updateEndDuration() {
+            const minutes = Math.floor(audio.duration / 60);
+            const seconds = Math.floor(audio.duration % 60);
+            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            endDuration.innerHTML = formattedTime
+        }
+
+        function playNextOrPrevSong() {
+            range.value = 0
+            // Actualizar el título de la canción.
+            updateSongTitle();
+            removePaddingForPause();
+            updateEndDuration()
+            // Reproducir el nuevo audio.
+            audio.play();
+            play.src = "./assets/svgs/pause.svg";
+        }
+
+        range.addEventListener("input", handleRangeInput)
+
+        again.addEventListener("click", () => {
+            range.value = 0;
+        });
+
+        audio.addEventListener("loadeddata", playNextOrPrevSong)
+
+        prev.addEventListener("click", () => {
+            songIndex--
+            if (songIndex < 0) {
+                songIndex = songArray.length - 1
+            }
+            audio.pause()
+            audio.currentTime = 0
+
+            // Cambiar la fuente de audio.
+            audio.src = songArray[songIndex];
+        })
+
+
+
+        next.addEventListener("click", () => {
+            songIndex++;
+            if (songIndex > songArray.length - 1) {
+                songIndex = 0;
+            }
+
+            // Pausar el audio actual.
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Cambiar la fuente de audio.
+            audio.src = songArray[songIndex];
+        });
+
+
+        audio.addEventListener("ended", () => {
+            play.src = "./assets/svgs/play.svg"
+            range.value = 0
+            startDuration.innerHTML = "00:00"
+        })
+
+        audio.addEventListener("timeupdate", () => {
+            // CONVIERTO EL TIEMPO EN MINUTOS Y SEGUNDOS, Y LO MUESTRO EN EL HTML
+            const minutes = Math.floor(audio.currentTime / 60);
+            const seconds = Math.floor(audio.currentTime % 60);
+            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            startDuration.innerHTML = formattedTime
+            const currentTimePercentage = (audio.currentTime * 100) / audio.duration
+            if (!isNaN(currentTimePercentage)) {
+                range.value = currentTimePercentage
+            } else {
+                range.value = 0;
+            }
+
+        })
+
+        function removePaddingForPause() {
+            play.classList.remove("playPadding")
+            play.classList.add("pausePadding")
+        }
+
+        play.addEventListener("click", () => {
+            if (!audio.paused) {
+                audio.pause()
+                // REMOVE PADDING FROM BUTTON PAUSE
+                play.classList.remove("pausePadding")
+                play.classList.add("playPadding")
+                play.src = "./assets/svgs/play.svg"
+            }
+            else {
+                audio.play()
+                // REMOVE PADDING FROM BUTTON PLAY
+                removePaddingForPause()
+                play.src = "./assets/svgs/pause.svg"
+            }
+        })
+
+    </script>
+</body>
+
+</html>
