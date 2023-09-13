@@ -87,6 +87,7 @@
 
         again.addEventListener("click", () => {
             range.value = 0;
+            audio.currentTime = range.value;
         });
 
         audio.addEventListener("loadeddata", playNextOrPrevSong)
