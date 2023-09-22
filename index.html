@@ -17,155 +17,96 @@
     <main>
         <section>
             <header>
-                <h4>CSS</h4>
-                <h1 class="titleSong">Music Player</h1>
-                <h4>JS</h4>
+                <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M5 12l14 0"></path>
+                        <path d="M5 12l4 4"></path>
+                        <path d="M5 12l4 -4"></path>
+                    </svg></button>
+                <h1 class="headerTitle">Playing now</h1>
+                <button><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M9 6l11 0"></path>
+                        <path d="M9 12l11 0"></path>
+                        <path d="M9 18l11 0"></path>
+                        <path d="M5 6l0 .01"></path>
+                        <path d="M5 12l0 .01"></path>
+                        <path d="M5 18l0 .01"></path>
+                    </svg></button>
             </header>
+
+            <div class="albumContainer">
+                <div class="albumCover">
+                    <img src="https://i.scdn.co/image/9dcbd30dbe0c621cbaeae427cf80eff9877b4fcd" class="albumImg"
+                        alt="cover image">
+                </div>
+
+            </div>
+
+            <div class="musicTitle">
+                <p>Lose it</p>
+                <p>Flume ft.Vic Mamma</p>
+            </div>
 
             <div class="musicContent">
                 <div class="musicDuration">
-                    <input type="range" alt="Barra indicadora de tiempo reproduciendo" value="0" step="1">
                     <div class="durationText">
                         <p class="startDuration">00:00</p>
                         <p class="endDuration"></p>
                     </div>
+                    <input type="range" alt="Barra indicadora de tiempo reproduciendo" value="0" step="1">
                 </div>
 
                 <div class="buttons">
-                    <button><img src="./assets/svgs/again.svg" class="again" alt="again button"></button>
-                    <button><img src="./assets/svgs/prev.svg" class="prev" alt="prev button"></button>
-                    <button><img src="./assets/svgs/play.svg" class="play playPadding"
-                            alt="play or pause button"></button>
-                    <button><img src="./assets/svgs/next.svg" class="next" alt="next button"></button>
-                    <button><img src="./assets/svgs/list.svg" alt="list button"></button>
+                    <button class="prev"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-player-track-prev-filled" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M20.341 4.247l-8 7a1 1 0 0 0 0 1.506l8 7c.647 .565 1.659 .106 1.659 -.753v-14c0 -.86 -1.012 -1.318 -1.659 -.753z"
+                                stroke-width="0" fill="currentColor"></path>
+                            <path
+                                d="M9.341 4.247l-8 7a1 1 0 0 0 0 1.506l8 7c.647 .565 1.659 .106 1.659 -.753v-14c0 -.86 -1.012 -1.318 -1.659 -.753z"
+                                stroke-width="0" fill="currentColor"></path>
+                        </svg></button>
+                    <button class="play"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-player-play-filled" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z"
+                                stroke-width="0" fill="currentColor"></path>
+                        </svg></button>
+                    <button class="next"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-player-track-next-filled" width="24" height="24"
+                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M2 5v14c0 .86 1.012 1.318 1.659 .753l8 -7a1 1 0 0 0 0 -1.506l-8 -7c-.647 -.565 -1.659 -.106 -1.659 .753z"
+                                stroke-width="0" fill="currentColor"></path>
+                            <path
+                                d="M13 5v14c0 .86 1.012 1.318 1.659 .753l8 -7a1 1 0 0 0 0 -1.506l-8 -7c-.647 -.565 -1.659 -.106 -1.659 .753z"
+                                stroke-width="0" fill="currentColor"></path>
+                        </svg></button>
                 </div>
             </div>
 
+            <div class="playlist">
+                <ul>
+                </ul>
+            </div>
         </section>
+
     </main>
 
-    <script>
-        const play = document.querySelector(".play")
-        const next = document.querySelector(".next")
-        const again = document.querySelector(".again")
-        const prev = document.querySelector(".prev")
-        const titleSong = document.querySelector(".titleSong")
-        const startDuration = document.querySelector(".startDuration")
-        const endDuration = document.querySelector(".endDuration")
-        const songArray = ["./assets/music/Genie In A Bottle.mp3", "./assets/music/I Want You Back.mp3"]
-        let songIndex = 0
-        const audio = new Audio(songArray[songIndex])
-        const range = document.querySelector("input[type=range]")
-
-        function handleRangeInput() {
-            audio.currentTime = range.value * audio.duration / 100;
-        }
-
-        function updateSongTitle() {
-            titleSong.innerHTML = audio.src.split("/").pop().split(".")[0].replaceAll("%20", " ");
-        }
-
-        function updateEndDuration() {
-            const minutes = Math.floor(audio.duration / 60);
-            const seconds = Math.floor(audio.duration % 60);
-            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            endDuration.innerHTML = formattedTime
-        }
-
-        function playNextOrPrevSong() {
-            range.value = 0
-            // Actualizar el título de la canción.
-            updateSongTitle();
-            removePaddingForPause();
-            updateEndDuration()
-            // Reproducir el nuevo audio.
-        }
-
-        range.addEventListener("input", handleRangeInput)
-
-        again.addEventListener("click", () => {
-            range.value = 0;
-            audio.currentTime = range.value;
-        });
-
-        audio.addEventListener("loadeddata", playNextOrPrevSong)
-
-        prev.addEventListener("click", () => {
-            songIndex--
-            if (songIndex < 0) {
-                songIndex = songArray.length - 1
-            }
-            audio.pause()
-            audio.currentTime = 0
-
-            // Cambiar la fuente de audio.
-            audio.src = songArray[songIndex];
-            audio.play();
-            play.src = "./assets/svgs/pause.svg";
-        })
-
-
-
-        next.addEventListener("click", () => {
-            songIndex++;
-            if (songIndex > songArray.length - 1) {
-                songIndex = 0;
-            }
-
-            // Pausar el audio actual.
-            audio.pause();
-            audio.currentTime = 0;
-
-            // Cambiar la fuente de audio.
-            audio.src = songArray[songIndex];
-            audio.play();
-            play.src = "./assets/svgs/pause.svg";
-        });
-
-
-        audio.addEventListener("ended", () => {
-            play.src = "./assets/svgs/play.svg"
-            range.value = 0
-            startDuration.innerHTML = "00:00"
-        })
-
-        audio.addEventListener("timeupdate", () => {
-            // CONVIERTO EL TIEMPO EN MINUTOS Y SEGUNDOS, Y LO MUESTRO EN EL HTML
-            const minutes = Math.floor(audio.currentTime / 60);
-            const seconds = Math.floor(audio.currentTime % 60);
-            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            startDuration.innerHTML = formattedTime
-            const currentTimePercentage = (audio.currentTime * 100) / audio.duration
-            if (!isNaN(currentTimePercentage)) {
-                range.value = currentTimePercentage
-            } else {
-                range.value = 0;
-            }
-
-        })
-
-        function removePaddingForPause() {
-            play.classList.remove("playPadding")
-            play.classList.add("pausePadding")
-        }
-
-        play.addEventListener("click", () => {
-            if (!audio.paused) {
-                audio.pause()
-                // REMOVE PADDING FROM BUTTON PAUSE
-                play.classList.remove("pausePadding")
-                play.classList.add("playPadding")
-                play.src = "./assets/svgs/play.svg"
-            }
-            else {
-                audio.play()
-                // REMOVE PADDING FROM BUTTON PLAY
-                removePaddingForPause()
-                play.src = "./assets/svgs/pause.svg"
-            }
-        })
-
-    </script>
+    <script src="./music-player.js"></script>
 </body>
 
 </html>
