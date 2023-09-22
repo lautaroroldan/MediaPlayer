@@ -18,6 +18,13 @@ main {
     background-repeat: no-repeat;
 }
 
+
+.darkMode {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 section {
     /* BLUR */
     background-color: #e5eeff;
@@ -45,25 +52,6 @@ h1 {
     font-size: 1.25rem;
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 600;
-}
-
-h4 {
-    padding: 0.25rem 0.25rem 0.50rem 0.25rem;
-    outline: 1px solid #fff;
-    border-radius: 5px;
-    position: relative;
-}
-
-h4::after {
-    content: "";
-    height: 8px;
-    background-color: #fff;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
 }
 
 .headerTitle {
@@ -214,33 +202,7 @@ ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-}
-
-li button img {
-    padding: 0.35rem 0.2rem 0.35rem 0.45rem;
-}
-
-li button {
-    background-color: rgba(25, 25, 25, 0.35);
-    border-radius: 15px;
-    width: 100%;
-    padding: 1rem;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-li button:hover {
-    background-color: rgba(25, 25, 25, 0.15);
-}
-
-li button p {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: #fff;
+    gap: 1rem;
 }
 
 .playlist {
@@ -253,15 +215,41 @@ li button p {
     padding: 20px 20px 0 20px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    bottom: -100%;
+    bottom: -40%;
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 600;
 }
 
-.playlist.active {
+.playlistSongs {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 2fr 1fr;
+}
+
+.playlistSongs button {
+    justify-self: end;
+}
+
+.infoSong {
+    justify-self: start;
+}
+
+.infoSong h3 {
+    color: #62777e;
+}
+
+
+
+/* .playlist.active {
     z-index: 10;
     animation: bounce 0.8s ease forwards alternate
-}
+} */
 
 .cardContent {
     position: relative;
@@ -281,10 +269,52 @@ li button p {
     }
 }
 
-/* .album:hover {
-    transform-origin: top center;
+.albumCoverAnimation {
+    transform-origin: middle center;
+    transition: transform .4s ease-in-out;
     transform: scale(0.5);
-} */
+}
+
+.albumHeart,
+.albumDots {
+    position: absolute;
+}
+
+.albumHeart {
+    left: -20%;
+}
+
+.albumDots {
+    right: -20%;
+}
+
+.albumHeartAnimation {
+    animation: heart .5s ease-in-out forwards;
+}
+
+.albumDotsAnimation {
+    animation: dots .5s ease-in-out forwards;
+}
+
+@keyframes heart {
+    0% {
+        left: -10%;
+    }
+
+    100% {
+        left: 10%;
+    }
+}
+
+@keyframes dots {
+    0% {
+        right: -10%;
+    }
+
+    100% {
+        right: 10%;
+    }
+}
 
 @keyframes rotate {
     0% {

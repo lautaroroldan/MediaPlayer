@@ -40,23 +40,37 @@ const svgPlay = `<svg xmlns="http://www.w3.org/2000/svg"
 const reproduction = play.querySelector("svg")
 const albumImg = document.querySelector(".albumImg")
 
-// function createPlaylist() {
-//     songArray.forEach((song) => {
-//         const li = document.createElement("li")
-//         const button = document.createElement("button")
-//         const img = document.createElement("img")
-//         const p = document.createElement("p")
-//         img.src = "./assets/svgs/play.svg"
-//         img.classList.add("play")
+function createPlaylist() {
+    const ul = document.createElement("ul")
+    songArray.forEach((song) => {
+        const li = document.createElement("li")
+        const div = document.createElement("div")
+        div.classList.add("playlistSongs")
+        const button = document.createElement("button")
 
-//         button.appendChild(img)
-//         p.innerHTML = song.split("/").pop().split(".")[0].replaceAll("%20", " ")
-//         button.appendChild(p)
-//         li.appendChild(button)
-//         playlist.getElementsByTagName("ul")[0].appendChild(li)
-//     })
-// }
-// createPlaylist()
+        const infoSong = document.createElement("div")
+        infoSong.classList.add("infoSong")
+        const titleSong = document.createElement("h3")
+        const artistSong = document.createElement("h4")
+
+        const svg = document.createElement("svg")
+        svg.innerHTML = svgPlay
+
+        titleSong.innerHTML = song.name
+        artistSong.innerHTML = song.artist
+        infoSong.appendChild(titleSong)
+        infoSong.appendChild(artistSong)
+
+        button.appendChild(svg)
+        div.appendChild(infoSong)
+        div.appendChild(button)
+
+        li.appendChild(div)
+        ul.appendChild(li)
+        playlist.appendChild(ul)
+    })
+}
+createPlaylist()
 
 
 // list.addEventListener("click", () => {
@@ -65,6 +79,15 @@ const albumImg = document.querySelector(".albumImg")
 
 //     playlist.classList.add("active")
 // })
+
+list.addEventListener("click", () => {
+    const albumDots = document.querySelector(".albumDots")
+    const albumCover = document.querySelector(".albumCover")
+    const albumHeart = document.querySelector(".albumHeart")
+    albumHeart.classList.toggle("albumHeartAnimation")
+    albumCover.classList.toggle("albumCoverAnimation")
+    albumDots.classList.toggle("albumDotsAnimation")
+})
 
 function handleRangeInput() {
     audio.currentTime = range.value * audio.duration / 100;
