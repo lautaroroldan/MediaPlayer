@@ -215,7 +215,8 @@ ul {
     padding: 20px 20px 0 20px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    bottom: -40%;
+    bottom: -100%;
+    /* -40% */
     font-family: 'Bricolage Grotesque', sans-serif;
     font-weight: 600;
 }
@@ -230,10 +231,18 @@ ul {
     display: grid;
     place-items: center;
     grid-template-columns: 2fr 1fr;
+    padding: 1rem;
+}
+
+.playlistSongs:hover {
+    border-radius: 15px;
+    background-color: #d8e4f8;
 }
 
 .playlistSongs button {
     justify-self: end;
+    padding: 0.45rem;
+    border: 2px solid #e5eeff;
 }
 
 .infoSong {
@@ -244,12 +253,14 @@ ul {
     color: #62777e;
 }
 
+.musicInfo {
+    visibility: visible;
+}
 
-
-/* .playlist.active {
+.playlist.active {
     z-index: 10;
     animation: bounce 0.8s ease forwards alternate
-} */
+}
 
 .cardContent {
     position: relative;
@@ -261,11 +272,11 @@ ul {
     }
 
     50% {
-        bottom: -5%;
+        bottom: -35%;
     }
 
     100% {
-        bottom: -10%;
+        bottom: -40%;
     }
 }
 

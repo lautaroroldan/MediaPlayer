@@ -62,6 +62,26 @@ function createPlaylist() {
         infoSong.appendChild(artistSong)
 
         button.appendChild(svg)
+        button.addEventListener("click", () => {
+
+            if (!audio.paused) {
+                audio.pause()
+                svg.innerHTML = svgPlay
+                reproduction.innerHTML = svgPlay
+                button.classList.remove("playing")
+                play.classList.remove("playing")
+                albumImg.classList.add("pauseAnimationRotate")
+            }
+            else {
+                audio.play()
+                button.classList.add("playing")
+                play.classList.add("playing")
+                albumImg.classList.add("playAnimationRotate")
+                albumImg.classList.remove("pauseAnimationRotate")
+                svg.innerHTML = svgPause
+                reproduction.innerHTML = svgPause
+            }
+        })
         div.appendChild(infoSong)
         div.appendChild(button)
 
@@ -72,14 +92,6 @@ function createPlaylist() {
 }
 createPlaylist()
 
-
-// list.addEventListener("click", () => {
-//     const musicContent = document.querySelector(".musicContent")
-//     musicContent.classList.add("hidden")
-
-//     playlist.classList.add("active")
-// })
-
 list.addEventListener("click", () => {
     const albumDots = document.querySelector(".albumDots")
     const albumCover = document.querySelector(".albumCover")
@@ -87,6 +99,14 @@ list.addEventListener("click", () => {
     albumHeart.classList.toggle("albumHeartAnimation")
     albumCover.classList.toggle("albumCoverAnimation")
     albumDots.classList.toggle("albumDotsAnimation")
+    playlist.classList.toggle("active")
+    const musicInfo = document.querySelector(".musicInfo")
+    if (musicInfo.style.visibility === "hidden") {
+        musicInfo.style.visibility = "visible"
+    } else {
+        musicInfo.style.visibility = "hidden"
+    }
+
 })
 
 function handleRangeInput() {
