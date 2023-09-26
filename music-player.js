@@ -14,8 +14,8 @@ const songArray = [{
 }, {
     name: "Genie in a bottle",
     artist: "Christina Aguilera",
-    cover: "./assets/images/Genie in a Bottle.jpg",
-    source: "./assets/music/Genie in a Bottle.mp3",
+    cover: "./assets/images/Genie in A Bottle.jpg",
+    source: "./assets/music/Genie in A Bottle.mp3",
 }]
 let songIndex = 0
 const audio = new Audio(songArray[songIndex].source)
