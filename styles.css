@@ -357,4 +357,36 @@ ul {
     .musicContent {
         padding: 0 1.5rem;
     }
+
+    button {
+        padding: 0.5rem;
+    }
+
+    .albumCover {
+        width: 200px;
+        height: 200px;
+        box-shadow: 5px 5px 5px 5px #a7b7c4, -5px -5px 5px 5px #faffff;
+    }
+
+    .playlistSongs {
+        padding: 0.8rem;
+    }
+
+    .infoSong h3 {
+        font-size: 1rem;
+    }
+
+    .infoSong h4 {
+        font-size: 0.9rem;
+    }
+
+    .playlistSongs button {
+        padding: 0.60rem;
+    }
+
+    .playlistSongs button svg {
+        width: 16px;
+        height: 16px;
+    }
+
 }
